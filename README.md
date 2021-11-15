@@ -49,3 +49,5 @@ apt-get update \
 4- un service db, on partira sur une image postgres:9.4, on definira 2 variables d'environnments POSTGRES_USER et POSTGRES_PASSWORD qui prendrons comme valeur "postgres", on definira un volume db_data qui sera mappe sur le repretoire "/var/lib/postgresql/data"
 
 5- tout les services devrons communiquer à travers d'un réseau de typer "bridge" nommé "netproxy", la création du network est prise en compte dans votre fichier docker compose
+
+* Votre application tournera sur  http://localhost:5000, et le résultat sur http://localhost:5001.
