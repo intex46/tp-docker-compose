@@ -30,3 +30,9 @@ services:
     ports:
       - "5001:80"
       - "5858:5858"
+      
+volumes:
+  db-data:{}
+
+networks:
+  netproxy:
