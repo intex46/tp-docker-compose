@@ -42,12 +42,14 @@ apt-get update \
 
 1- un service vote, l'image sera construite à la montée de vos service , il faudra executer le script app.py et mapper le port 5000 de votre machine hote au port 80, votre service dependra de la montée du service redis 
 
-2- un service redis qui part d'une image redis:alpine
+2- un service result, l'image sera construite à la montée de vos service , il faudra executer la commande `nodemon server.js`et mapper le port 5001 de votre machine hote au port 80, votre service dependra de la montée du service db
 
-3- un service worker qui va build l'image à la montée de votre application, il dependra du service redis egalement
+3- un service redis qui part d'une image redis:alpine
 
-4- un service db, on partira sur une image postgres:9.4, on definira 2 variables d'environnments POSTGRES_USER et POSTGRES_PASSWORD qui prendrons comme valeur "postgres", on definira un volume db_data qui sera mappe sur le repretoire "/var/lib/postgresql/data"
+4- un service worker qui va build l'image à la montée de votre application, il dependra du service redis egalement
 
-5- tout les services devrons communiquer à travers d'un réseau de typer "bridge" nommé "netproxy", la création du network est prise en compte dans votre fichier docker compose
+5- un service db, on partira sur une image postgres:9.4, on definira 2 variables d'environnments POSTGRES_USER et POSTGRES_PASSWORD qui prendrons comme valeur "postgres", on definira un volume db_data qui sera mappe sur le repretoire "/var/lib/postgresql/data"
+
+6- tout les services devrons communiquer à travers d'un réseau de typer "bridge" nommé "netproxy", la création du network est prise en compte dans votre fichier docker compose
 
 * Votre application tournera sur  http://localhost:5000, et le résultat sur http://localhost:5001.
